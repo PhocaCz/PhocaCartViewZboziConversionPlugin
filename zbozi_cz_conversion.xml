@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="pcv" method="upgrade" version="4.0">
+	<name>plg_pcv_zbozi_cz_conversion</name>
+	<author>Jan Pavelka (www.phoca.cz)</author>
+	<creationDate>01/09/2022</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl>https://www.phoca.cz</authorUrl>
+	<copyright>Jan Pavelka</copyright>
+	<license>GNU/GPL</license>
+	<version>4.0.4</version>
+	<description>PLG_PCV_ZBOZI_CZ_CONVERSION_DESCRIPTION</description>
+	<projectName>PhocaCartViewZboziConversionPlugin</projectName>
+
+	<files>
+		<folder>helpers</folder>
+		<filename plugin="zbozi_cz_conversion">index.html</filename>
+		<filename plugin="zbozi_cz_conversion">zbozi_cz_conversion.php</filename>
+		<filename plugin="zbozi_cz_conversion">manifest.xml</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_pcv_zbozi_cz_conversion.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_pcv_zbozi_cz_conversion.sys.ini</language>
+	</languages>
+
+	<administration>
+		<languages>
+			<language tag="en-GB">language/en-GB/en-GB.plg_pcv_zbozi_cz_conversion.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.plg_pcv_zbozi_cz_conversion.sys.ini</language>
+		</languages>
+	</administration>
+	<form>
+        <config>
+            <fields name="params" addfieldpath="/administrator/components/com_phocacart/models/fields">
+                <fieldset name="basic" label="PPLG_PCV_ZBOZI_CONVERSION_BASIC_OPTIONS" group="pcv">
+
+                    <field name="zbozi_id" type="text" default="" class="inputbox" size="40" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SHOP_ID_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SHOP_ID_DESC"/>
+
+
+					<field name="private_key" type="text" default="" class="inputbox" size="40" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_PRIVATE_KEY_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_PRIVATE_KEY_DESC"/>
+
+
+
+                    <field name="zbozi_type" type="list" class="form-select" default="standard" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_TYPE_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_TYPE_DESC">
+                        <option value="standard">PLG_PCV_ZBOZI_CZ_CONVERSION_STANDARD</option>
+                        <option value="limited">PLG_PCV_ZBOZI_CZ_CONVERSION_LIMITED</option>
+                        <option value="sandbox">PLG_PCV_ZBOZI_CZ_CONVERSION_SANDBOX</option>
+                    </field>
+
+					<field name="sklik_id" type="text" default="" class="inputbox" size="40" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SKLIK_ID_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SKLIK_ID_DESC"/>
+
+					<field name="consent" type="list" class="form-select" default="1" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_CONSENT_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_CONSENT_DESC">
+                        <option value="0">PLG_PCV_ZBOZI_CZ_CONVERSION_NO</option>
+                        <option value="1">PLG_PCV_ZBOZI_CZ_CONVERSION_YES</option>
+                    </field>
+
+					<field name="send_customer_email" type="list" class="form-select" default="0" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SEND_CUSTOMER_EMAIL_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_SEND_CUSTOMER_EMAIL_DESC">
+                        <option value="0">PLG_PCV_ZBOZI_CZ_CONVERSION_NO</option>
+                        <option value="1">PLG_PCV_ZBOZI_CZ_CONVERSION_YES</option>
+                    </field>
+
+                    <field name="currency_id" type="PhocacartCurrency" label="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_CURRENCY_LABEL" description="PLG_PCV_ZBOZI_CZ_CONVERSION_FIELD_CURRENCY_DESC" class="form-select" default="0"/>
+
+
+                </fieldset>
+            </fields>
+        </config>
+
+    </form>
+	
+
+	<updateservers>
+		<server type="extension" name="PLG_PCV_ZBOZI_CZ_CONVERSION" priority="1"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaCartViewZboziConversionPlugin/main/manifest.xml]]></server>
+	</updateservers>
+</extension>
