@@ -1,0 +1,19 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "PhocaCartViewZboziConversionPlugin",
+	"extensionName": "Phoca Cart View Zbozi.cz Conversion Plugin",
+	"projectInitials" : "PC",				  
+	"description": "Phoca Cart View - Zbozi.cz Conversion Tracking Plugin - plugin that adds the Zbozi.cz conversion tracking code when the order is successfully completed in Phoca Cart",
+	"projectUrl": "https://www.phoca.cz/phocacart-extensions/2-plugins/74-phoca-cart-view-zbozi-cz-conversion-plugin",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/115-phoca-cart",
+	"projectMainComponent": "Phoca Cart",
+	"projectMainComponentInfoUrl": "https://www.phoca.cz/project/phocacart-joomla-ecommerce",
+	"projectDemo" : {
+		"Joomla! - Phoca Cart Demo": "https://www.phoca.cz/phocacart4demo/"
+	},
+	"projectColor": "#129ed9",
+	"projectBranch": "main"
+}
