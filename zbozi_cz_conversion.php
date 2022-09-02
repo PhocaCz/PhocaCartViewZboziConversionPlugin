@@ -31,6 +31,12 @@ class plgPCVZbozi_cz_conversion extends CMSPlugin
 
 	public function onPCVonInfoViewDisplayContent($context, &$infoData, &$infoAction, $eventData) {
 
+
+		// DEBUG
+		///$infoData['order_id'] = ;
+		///$infoData['order_token'] =  '';
+		///$infoData['user_id'] = ;
+
 		$p                = [];
 		$p['zbozi_id']    = $this->params->get('zbozi_id', '');
 		$p['private_key'] = $this->params->get('private_key', '');
@@ -46,6 +52,8 @@ class plgPCVZbozi_cz_conversion extends CMSPlugin
 			$forceCurrency = (int)$p['currency_id'];
 		}
 
+		if (!isset($infoData['user_id'])) { $infoData['user_id'] = 0;}
+
 		$order = PhocacartOrder::getOrder($infoData['order_id'], $infoData['order_token'], $infoData['user_id']);
 
 		// $infoAction == 5 means that the order is cancelled, so no conversion
@@ -54,16 +62,20 @@ class plgPCVZbozi_cz_conversion extends CMSPlugin
 			$orderUser = PhocacartOrder::getOrderUser($order['id']);
 			$orderTotal = PhocacartOrder::getOrderTotal($order['id'], ['sbrutto', 'snetto', 'pbrutto', 'pnetto']);
 
+
 			if (!empty($orderProducts)) {
 
 				$price = new PhocacartPrice();
 
 
+				// DEBUG
+				///$order['order_number'] = rand(0,100000);
+
 				// FRONTEND
 				$s = [];
 				$s[] = 'var conversionConf = {';
 				$s[] = '   zboziId: "'.addslashes(trim(strip_tags($p['zbozi_id']))).'",';
-				$s[] = '   orderId: "'. (int)$order['id'].'",';
+				$s[] = '   orderId: "'. $order['order_number'].'",';
 				$s[] = '   zboziType: "'. $p['zbozi_type'].'",';
 
 				if ($p['sklik_id'] != '') {
@@ -148,16 +160,18 @@ class plgPCVZbozi_cz_conversion extends CMSPlugin
 
 					// nastavení informací o objednávce
 					$orderInfo = [];
-					$orderInfo['orderId'] = (int)$order['id'];
+					$orderInfo['orderId'] = $order['order_number'];
 					if ($email != '') {
 						$orderInfo['email'] = $email;
 					}
 					if ($deliveryType != '') {
 						$orderInfo['deliveryType'] = $deliveryType;
 					}
+					$orderInfo['deliveryPrice'] = 0;
 					if ($deliveryPrice != '') {
 						$orderInfo['deliveryPrice'] = $deliveryPrice;
 					}
+					$orderInfo['otherCosts'] = 0;
 					if ($otherCosts != '') {
 						$orderInfo['otherCosts'] = $otherCosts;
 					} else {
