@@ -2,7 +2,7 @@
 <extension type="plugin" group="pcv" method="upgrade" version="4.0">
 	<name>plg_pcv_zbozi_cz_conversion</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>02/09/2022</creationDate>
+	<creationDate>07/09/2022</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>

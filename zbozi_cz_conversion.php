@@ -187,7 +187,7 @@ class plgPCVZbozi_cz_conversion extends CMSPlugin
 					foreach ($orderProducts as $k => $v) {
 						$productPrice  = $price->getPriceFormatRaw($v['brutto'], 0, 0, $forceCurrency, 2, '.', '');
 						$zbozi->addCartItem(array(
-							"itemId" => (int)$v['id'],
+							"itemId" => (int)$v['product_id'],
 							"productName" => addslashes($v['title']),
 							"quantity" => (int)$v['quantity'],
 							"unitPrice" => $productPrice,
